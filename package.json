@@ -1,0 +1,28 @@
+{
+  "name": "PantsJS",
+  "version": "0.0.0",
+  "description": "An application deployment tool for the Cloud Era!",
+  "main": "lib/pants.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:erulabs/erusgame.git"
+  },
+  "author": "Seandon Mooy <seandon.mooy@gmail.com> (http://erulabs.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erulabs/erusgame/issues"
+  },
+  "homepage": "https://github.com/erulabs/erusgame",
+  "dependencies": {
+    "commander": "latest"
+  },
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-uglify": "latest",
+    "gulp-concat": "latest",
+    "gulp-coffee": "latest",
+    "vinyl-source-stream": "latest"
+  }
+}

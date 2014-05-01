@@ -2,7 +2,6 @@
 
 gulp		= require 'gulp'
 coffee		= require 'gulp-coffee'
-uglify		= require 'gulp-uglify'
 concat		= require 'gulp-concat'
 source		= require 'vinyl-source-stream'
 path		= require 'path'
@@ -25,8 +24,9 @@ gulp.task 'test', ->
 		.pipe concat 'test-bundle.js'
 		.pipe gulp.dest 'test'
 
-gulp.task 'default', [ 'src', 'test' ]
+gulp.task 'default', [ 'lib', 'bin', 'test' ]
 
 gulp.task 'watch', ->
-	gulp.watch 'src/lib/**/*.coffee', [ 'src' ]
+	gulp.watch 'src/lib/**/*.coffee', [ 'lib' ]
 	gulp.watch 'src/test/**/*.coffee', [ 'test' ]
+	gulp.watch 'src/bin/**/*.coffee', [ 'bin' ]

@@ -20,11 +20,13 @@
     "control": "^0.2.3"
   },
   "devDependencies": {
+    "coffee-script": "^1.7.1",
     "gulp": "3.6",
     "gulp-coffee": "1.4",
     "gulp-coffeelint": "^0.3.3",
     "gulp-concat": "2.2",
     "gulp-insert": "0.3",
+    "gulp-util": "^2.2.20",
     "mocha": "1.18"
   },
   "scripts": {

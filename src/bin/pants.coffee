@@ -32,6 +32,8 @@ opts = commander.command '*'
     .option '-k, --key <key>'
     .parse process.argv
 
+environment = opts.args[0]
+
 Pants = new LibPants Pantsfile
 
 # Load SSH key is one was provided:
@@ -45,16 +47,16 @@ if opts.key?
 if opts.test? then Pants.test = opts.test
 
 if opts.deploy?
-    Pants.deploy opts.deploy
+    Pants.deploy(environment, opts.deploy)
 else if opts.rollback?
-    Pants.rollback opts.rollback
+    Pants.rollback(environment, opts.rollback)
 else if opts.activate?
-    Pants.activate opts.activate
+    Pants.activate(environment, opts.activate)
 else if opts.prep?
-    Pants.prep opts.prep
+    Pants.prep(environment, opts.prep)
 else if opts.state?
-    Pants.state opts.state
+    Pants.state(environment, opts.state)
 else if opts.list?
-    Pants.list opts.list
+    Pants.list(environment, opts.list)
 else if opts.highstate?
-    Pants.highstate()
+    Pants.highstate(environment)

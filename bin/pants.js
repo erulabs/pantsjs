@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 (function() {
   'use strict';
-  var LibPants, Pants, Pantsfile, PantsfilePath, cliExit, commander, fs, opts;
+  var LibPants, Pants, Pantsfile, PantsfilePath, cliExit, commander, environment, fs, opts;
 
   PantsfilePath = process.cwd() + '/Pantsfile.js';
 
@@ -25,6 +25,8 @@
 
   opts = commander.command('*').option('deploy [tag]').option('rollback [tag]').option('prep [tag]').option('activate <tag>').option('state [state]').option('list [type]').option('highstate').option('-t, --test').option('-k, --key <key>').parse(process.argv);
 
+  environment = opts.args[0];
+
   Pants = new LibPants(Pantsfile);
 
   if (opts.key != null) {
@@ -41,19 +43,19 @@
   }
 
   if (opts.deploy != null) {
-    Pants.deploy(opts.deploy);
+    Pants.deploy(environment, opts.deploy);
   } else if (opts.rollback != null) {
-    Pants.rollback(opts.rollback);
+    Pants.rollback(environment, opts.rollback);
   } else if (opts.activate != null) {
-    Pants.activate(opts.activate);
+    Pants.activate(environment, opts.activate);
   } else if (opts.prep != null) {
-    Pants.prep(opts.prep);
+    Pants.prep(environment, opts.prep);
   } else if (opts.state != null) {
-    Pants.state(opts.state);
+    Pants.state(environment, opts.state);
   } else if (opts.list != null) {
-    Pants.list(opts.list);
+    Pants.list(environment, opts.list);
   } else if (opts.highstate != null) {
-    Pants.highstate();
+    Pants.highstate(environment);
   }
 
 }).call(this);

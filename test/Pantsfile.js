@@ -1,16 +1,18 @@
 'use pants'
 
-var servers = {
-    "23.253.108.126": {
-        user: "root",
-        sshOptions: [ '-p 80' ]
-    }
-};
+var fs = require('fs');
 
 module.exports = {
     environments: {
         production: {
-            "23.253.108.126": servers["23.253.108.126"]
+            key: fs.readFileSync('/Users/sean6011/.ssh/id_rsa'),
+            servers: {
+                'cloud-server': {
+                    host: '10.69.245.169',
+                    username: 'seandon',
+                    port: 22
+                }
+            }
         }
     }
 };

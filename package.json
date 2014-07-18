@@ -4,7 +4,7 @@
   "description": "An application deployment tool for the Cloud Era!",
   "main": "./lib/pants.js",
   "bin": {
-    "pants": "./bin/pants"
+    "pants": "./bin/pants.js"
   },
   "repository": {
     "type": "git",
@@ -17,14 +17,14 @@
   },
   "homepage": "https://github.com/erulabs/pantsjs",
   "dependencies": {
-    "commander": "2.2",
-    "pkgcloud": "0.9.4"
+    "control": "^0.2.3"
   },
   "devDependencies": {
     "gulp": "3.6",
-    "gulp-concat": "2.2",
     "gulp-coffee": "1.4",
-    "vinyl-source-stream": "0.1",
+    "gulp-coffeelint": "^0.3.3",
+    "gulp-concat": "2.2",
+    "gulp-insert": "0.3",
     "mocha": "1.18"
   },
   "scripts": {
